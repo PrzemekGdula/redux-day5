@@ -1,17 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import {set, getState} from './store'
+import { store } from './store'
 
-set('users, []')
+store.dispatch({})
 
-console.log(getState())
+console.log(store.getState())
 
 const App = (props) => (
-
   <div>
 
   </div>
-
 )
 
-export default App;
+export default App
