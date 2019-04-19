@@ -1,13 +1,17 @@
-import { createStore } from './redux'
+import { createStore, combineReducers } from './redux'
 
-import users, {setUsersActionCreator} from './state/users'
+import users, { setUsersActionCreator } from './state/users'
+import events, { setEventsActionCreator } from './state/events'
 
-const rootReducer = users
+const rootReducer = combineReducers => ({
+        users: users,
+        events: events,
+    })
 
-const store = createStore(rootReducer)
-  
-  store.dispatch({})
-  store.dispatch(setUsersActionCreator([]))
-  
-  console.log(store.getState())
-  
+export const store = createStore(rootReducer)
+
+store.dispatch({})
+store.dispatch(setUsersActionCreator([]))
+store.dispatch(setEventsActionCreator([]))
+
+console.log(store.getState())
