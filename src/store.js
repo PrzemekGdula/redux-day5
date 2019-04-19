@@ -1,16 +1,13 @@
 import { createStore } from './redux'
 
-import users from './state/users'
+import users, {setUsersActionCreator} from './state/users'
 
 const rootReducer = users
 
 const store = createStore(rootReducer)
   
   store.dispatch({})
-  store.dispatch({
-    type: 'SET',
-    users: [],
-  })
+  store.dispatch(setUsersActionCreator([]))
   
   console.log(store.getState())
   
