@@ -1,22 +1,16 @@
-export const createStore = (rootReducer) => {
+import { createStore } from './redux'
 
-    let state = {}
+import users from './state/users'
 
-    const getState = () => state
+const rootReducer = users
 
-    const dispatch = (newAction) => {
-        const newState = rootReducer(state, newAction)
-
-        state = newState
-
-        return newAction
-    }
-
-    const store = {
-        getState,
-        dispatch,
-    }
-
-    return store
-
-}
+const store = createStore(rootReducer)
+  
+  store.dispatch({})
+  store.dispatch({
+    type: 'SET',
+    users: [],
+  })
+  
+  console.log(store.getState())
+  
