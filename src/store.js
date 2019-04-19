@@ -1,22 +1,22 @@
-let state = {}
+export const createStore = (rootReducer) => {
 
-const getState = () => state
+    let state = {}
 
-const dispatch = (newAction) => {
-  const newState = rootReducer(state, newAction)
+    const getState = () => state
 
-  state = newState
+    const dispatch = (newAction) => {
+        const newState = rootReducer(state, newAction)
 
-  return newAction
-}
+        state = newState
 
-const rootReducer = (state, action) => {
-  return {
-    users: []
-  }
-}
+        return newAction
+    }
 
-export const store = {
-  getState,
-  dispatch,
+    const store = {
+        getState,
+        dispatch,
+    }
+
+    return store
+
 }
